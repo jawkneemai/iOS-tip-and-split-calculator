@@ -10,6 +10,19 @@
 
 @interface ViewController ()
 
+    @property (weak, nonatomic) IBOutlet UITextField *textFieldBill;
+    @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlTax;
+    @property (weak, nonatomic) IBOutlet UISwitch *switchTax;
+    @property (weak, nonatomic) IBOutlet UISlider *sliderTipAmount;
+    @property (weak, nonatomic) IBOutlet UILabel *textTipAmount;
+    @property (weak, nonatomic) IBOutlet UILabel *textSplitAmount;
+    @property (weak, nonatomic) IBOutlet UIStepper *stepperSplitAmount;
+    @property (weak, nonatomic) IBOutlet UILabel *textTotalTax;
+    @property (weak, nonatomic) IBOutlet UILabel *textTotalNoTip;
+    @property (weak, nonatomic) IBOutlet UILabel *textFinalTip;
+    @property (weak, nonatomic) IBOutlet UILabel *textTotalWithTip;
+    @property (weak, nonatomic) IBOutlet UILabel *textTotalPerPerson;
+
 @end
 
 @implementation ViewController
