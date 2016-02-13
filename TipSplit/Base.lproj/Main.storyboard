@@ -127,7 +127,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrU-gx-nDa" userLabel="Even Split View">
-                                        <rect key="frame" x="166" y="184" width="228" height="29"/>
+                                        <rect key="frame" x="166" y="196" width="228" height="29"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Even Split" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aa-1D-WsD">
                                                 <rect key="frame" x="0.0" y="5" width="77" height="21"/>
@@ -153,11 +153,17 @@
                                             <constraint firstItem="G2s-pz-HEd" firstAttribute="leading" secondItem="HCc-xM-v5F" secondAttribute="trailing" constant="8" id="V7g-06-ZEv"/>
                                         </constraints>
                                     </view>
-                                    <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-ft-3fJ">
-                                        <rect key="frame" x="146" y="146" width="268" height="31"/>
-                                    </slider>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Iq-VI-fFa" userLabel="Slider View">
+                                        <rect key="frame" x="154" y="158" width="252" height="30"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-ft-3fJ">
+                                                <rect key="frame" x="-2" y="0.0" width="268" height="31"/>
+                                            </slider>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oj3-so-YbH" userLabel="Totals view">
-                                        <rect key="frame" x="185" y="221" width="190" height="133"/>
+                                        <rect key="frame" x="185" y="233" width="190" height="133"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Total with tip: $" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyY-Tf-A6G">
                                                 <rect key="frame" x="30" y="86" width="115" height="21"/>
@@ -245,12 +251,17 @@
                                 <color key="tintColor" red="0.99607473611831665" green="0.99220293760299683" blue="0.99199241399765015" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="7lL-7f-FJU" firstAttribute="centerX" secondItem="tyx-qG-Gbm" secondAttribute="centerX" id="501-we-ZKu"/>
+                                    <constraint firstItem="MSM-7t-U2d" firstAttribute="top" secondItem="tZD-Sx-gaS" secondAttribute="bottom" constant="8" id="66f-fq-07p"/>
                                     <constraint firstItem="MSM-7t-U2d" firstAttribute="centerX" secondItem="tyx-qG-Gbm" secondAttribute="centerX" id="6Vs-o5-y2m"/>
                                     <constraint firstItem="hrU-gx-nDa" firstAttribute="centerX" secondItem="tyx-qG-Gbm" secondAttribute="centerX" id="AbZ-NK-uAI"/>
-                                    <constraint firstItem="3eD-ft-3fJ" firstAttribute="centerX" secondItem="tyx-qG-Gbm" secondAttribute="centerX" id="TOz-3O-bXf"/>
+                                    <constraint firstItem="Oj3-so-YbH" firstAttribute="top" secondItem="hrU-gx-nDa" secondAttribute="bottom" constant="8" id="HFs-Ik-u3L"/>
+                                    <constraint firstItem="npS-a4-GZF" firstAttribute="top" secondItem="7lL-7f-FJU" secondAttribute="bottom" constant="8" id="M5s-Ey-7vY"/>
+                                    <constraint firstItem="7lL-7f-FJU" firstAttribute="top" secondItem="MSM-7t-U2d" secondAttribute="bottom" constant="8" id="Plv-1x-hrp"/>
                                     <constraint firstItem="tZD-Sx-gaS" firstAttribute="centerX" secondItem="tyx-qG-Gbm" secondAttribute="centerX" id="Wto-CR-ukX"/>
                                     <constraint firstItem="npS-a4-GZF" firstAttribute="centerX" secondItem="tyx-qG-Gbm" secondAttribute="centerX" id="Yto-iJ-GAW"/>
                                     <constraint firstItem="Oj3-so-YbH" firstAttribute="centerX" secondItem="tyx-qG-Gbm" secondAttribute="centerX" id="ccA-9E-yUz"/>
+                                    <constraint firstItem="4Iq-VI-fFa" firstAttribute="centerX" secondItem="tyx-qG-Gbm" secondAttribute="centerX" id="eVK-w2-1yH"/>
+                                    <constraint firstItem="4Iq-VI-fFa" firstAttribute="top" secondItem="npS-a4-GZF" secondAttribute="bottom" constant="8" id="gAq-7G-un1"/>
                                 </constraints>
                             </view>
                         </subviews>
