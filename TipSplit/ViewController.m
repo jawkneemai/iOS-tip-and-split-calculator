@@ -37,8 +37,49 @@
     
 }
 
+- (IBAction)taxSwitchPressed:(id)sender {
+    [self updateValues];
+}
+
 - (IBAction)billInputed:(id)sender {
     NSString* total = self.textFieldBill.text;
+    self.billAmount = [total floatValue];
+    [self updateValues];
+}
+
+- (IBAction)segmentedControlChange:(id)sender {
+    switch (self.segmentedControlTax.selectedSegmentIndex) {
+        case 0:
+            self.taxPercent = 0.075;
+            break;
+        case 1:
+            self.taxPercent = 0.08;
+            break;
+        case 2:
+            self.taxPercent = 0.085;
+            break;
+        case 3:
+            self.taxPercent = 0.09;
+            break;
+        case 4:
+            self.taxPercent = 0.095;
+            break;
+        default:
+            break;
+    }
+    [self updateValues];
+}
+
+- (IBAction)sliderChanged:(id)sender {
+    self.tipPercent = (self.sliderTipAmount.value) / 100;
+    self.textTipAmount.text = [NSString stringWithFormat:@"%.f%%", self.sliderTipAmount.value];
+    [self updateValues];
+}
+
+- (IBAction)stepperChanged:(id)sender {
+    self.splitNum = self.stepperSplitAmount.value;
+    self.textSplitAmount.text = [NSString stringWithFormat:@"%i", self.splitNum];
+    [self updateValues];
 }
 
 - (IBAction)clearAll:(id)sender {
@@ -70,7 +111,28 @@
     self.totalSplit = 0.0;
     self.splitNum = 1;
     self.includeTax = true;
+}
+
+- (void) updateValues {
+    // calculate values
+    self.totalTax = (self.billAmount) * (self.taxPercent);
+    self.totalAmountForTip = (self.billAmount) + (self.totalTax);
+    if (self.switchTax.on == false) {
+        self.totalAmountForTip = self.billAmount;
+    } else {
+        self.totalAmountForTip = (self.billAmount) + (self.totalTax);
+    }
+    self.totalTip = (self.tipPercent) * (self.totalAmountForTip);
+    self.billAmountWithTip = (self.billAmount) + self.totalTax + self.totalTip;
+    self.totalSplit = (self.billAmountWithTip) / (self.splitNum);
     
+    
+    // Set text of UI
+    self.textTotalTax.text = [NSString stringWithFormat: @"%.02f", self.totalTax];
+    self.textTotalNoTip.text = [NSString stringWithFormat: @"%.02f", self.totalAmountForTip];
+    self.textFinalTip.text = [NSString stringWithFormat: @"%.02f", self.totalTip];
+    self.textTotalWithTip.text = [NSString stringWithFormat: @"%.02f", self.billAmountWithTip];
+    self.textTotalPerPerson.text = [NSString stringWithFormat: @"%.02f", self.totalSplit];
 }
 
 - (IBAction)backgroundTouched:(id)sender {
