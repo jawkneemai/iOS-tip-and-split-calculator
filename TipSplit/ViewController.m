@@ -34,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initializeValues];
+    [self initializeValues];
     
 }
 
@@ -83,20 +84,38 @@
 }
 
 - (IBAction)clearAll:(id)sender {
-    self.textTipAmount.text = @"15%";
-    self.textSplitAmount.text = @"1";
-    self.textTotalTax.text = @"0.00";
-    self.textTotalNoTip.text = @"0.00";
-    self.textFinalTip.text = @"0.00";
-    self.textTotalWithTip.text = @"0.00";
-    self.textTotalPerPerson.text = @"0.00";
-    self.textFieldBill.text = @"";
-    
-    [self initializeValues];
-    [self.segmentedControlTax setSelectedSegmentIndex: 0];
-    [self.sliderTipAmount setValue: 15 animated: true];
-    [self.stepperSplitAmount setValue: 1];
-    [self.switchTax setOn: true animated: true];
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle: @"Are you sure?"
+                                          message: @"Are you really sure?"
+                                          preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style: UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action) {
+                                       NSLog(@"Cancel Action");
+                                   }];
+    UIAlertAction *clearAllAction = [UIAlertAction
+                                     actionWithTitle:@"Clear All"
+                                     style: UIAlertActionStyleDestructive
+                                     handler:^(UIAlertAction *action) {
+                                         self.textTipAmount.text = @"15%";
+                                         self.textSplitAmount.text = @"1";
+                                         self.textTotalTax.text = @"0.00";
+                                         self.textTotalNoTip.text = @"0.00";
+                                         self.textFinalTip.text = @"0.00";
+                                         self.textTotalWithTip.text = @"0.00";
+                                         self.textTotalPerPerson.text = @"0.00";
+                                         self.textFieldBill.text = @"";
+                                         
+                                         [self initializeValues];
+                                         [self.segmentedControlTax setSelectedSegmentIndex: 0];
+                                         [self.sliderTipAmount setValue: 15 animated: true];
+                                         [self.stepperSplitAmount setValue: 1];
+                                         [self.switchTax setOn: true animated: true];
+                                     }];
+    [alertController addAction: cancelAction];
+    [alertController addAction: clearAllAction];
+    [self presentViewController: alertController animated: YES completion: nil];
 }
 
 

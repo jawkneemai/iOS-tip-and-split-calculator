@@ -496,6 +496,7 @@
 				994CE6DF1C6BDA0D00F55234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		994CE6E01C6BDA0D00F55234 /* Build configuration list for PBXNativeTarget "TipSplitTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +505,7 @@
 				994CE6E21C6BDA0D00F55234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		994CE6E31C6BDA0D00F55234 /* Build configuration list for PBXNativeTarget "TipSplitUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +514,7 @@
 				994CE6E51C6BDA0D00F55234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
